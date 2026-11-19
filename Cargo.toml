@@ -1,0 +1,13 @@
+[package]
+name = "redstone-bot"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+teloxide = { version = "0.13", features = ["macros", "rustls"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal"] }
+sqlx = { version = "0.8", features = ["sqlite", "runtime-tokio-rustls"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+dptree = "0.3"

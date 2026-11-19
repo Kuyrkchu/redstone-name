@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+target/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.key
+*.conf
+*.pem
+*.pub
