@@ -10,3 +10,8 @@ target/
 *.conf
 *.pem
 *.pub
+*.zip
+*.log
+redstone-sing-box.json
+redstone-phone-qr.png
+redstone-wireguard.zip

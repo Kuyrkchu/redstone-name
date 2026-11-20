@@ -1,0 +1,12 @@
+# Совместимость приложений — источники и проверенные сведения
+
+- **HAPP — добавление профиля/подписки:** https://www.happ.su/main/faq/adding-configuration-subscription. В перечне поддерживаемых типов указаны VLESS, VMess, Socks5, Trojan, Shadowsocks и Hysteria2; обычного WireGuard `.conf` нет. Импорт ссылок/QR относится к поддерживаемым URI-схемам и подпискам.
+- **HAPP — примеры протоколов:** https://www.happ.su/main/dev-docs/examples-of-links-and-parameters. Перечислены VLESS, VMess, Shadowsocks, Socks5, Trojan и Hysteria2. JSON-импорт описан как Xray JSON passthrough; sing-box JSON нельзя считать совместимым.
+- **v2RayTun — официальный репозиторий:** https://github.com/LXST-CODE/v2RayTun. Описан как клиент на базе Xray core и AmneziaWG core; сам репозиторий — roadmap/release notes, не подробная инструкция импорта.
+- **v2RayTun Android releases:** https://github.com/LXST-CODE/v2RayTun/releases. В заметках релиза Android указано исправление генерации финальной WireGuard-конфигурации. Точный импорт именно стандартного WireGuard `.conf` и QR в найденной документации не описан; потребуется проверка в конкретной версии приложения.
+- **AmneziaVPN — импорт файла:** https://docs.amnezia.org/documentation/instructions/connect-via-config. Android/iOS инструкция: `+`/Get Started → Connection settings file → выбрать `.conf` или `.json` → Continue → Connect. Документ описывает также Premium/Self-hosted источники, поэтому тест со стандартным профилем этого сервера всё равно нужен.
+- **AmneziaVPN — QR:** https://docs.amnezia.org/documentation/instructions/connect-via-qr-code/. QR выбирается после `+`; код нужно заранее показать на другом устройстве. Инструкция описывает Amnezia Premium/Self-hosted QR; она не обещает совместимость с произвольным QR, закодировавшим стандартный WireGuard `.conf`.
+- **AmneziaVPN — альтернативные клиенты:** https://docs.amnezia.org/documentation/alternative-clients. Для native WireGuard рекомендуется выбрать формат “For WireGuard”, сохранить `.conf` и открыть его в официальном WireGuard app.
+- **WireGuard Android source:** https://github.com/WireGuard/wireguard-android. Официальный Android GUI-проект. Сканирование QR профиля также описывается в инструкции TP-Link: https://www.tp-link.com/nordic/support/faq/3986/.
+
+Ограничение проверки: нет доступа к физическому Android-устройству пользователя, поэтому по сайтам можно подтвердить формат/шаги, но не проверить экранные кнопки и сетевой handshake внутри каждой мобильной сборки.

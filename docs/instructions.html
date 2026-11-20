@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Redstouns VPN — инструкции</title>
+<style>
+:root{color-scheme:dark;--bg:#101315;--panel:#191e20;--panel2:#202628;--red:#ef5148;--amber:#ffbd67;--text:#f4f0e9;--muted:#b1b7b5;--line:#394144;--green:#9ad8ac}
+*{box-sizing:border-box}body{margin:0;background:#101315;color:var(--text);font:16px/1.45 Inter,"DejaVu Sans",Arial,sans-serif}
+main{width:540px;padding:24px;background:radial-gradient(circle at 88% 4%,#3b201b 0,transparent 27%),linear-gradient(145deg,#15191b,#101315);border:1px solid #333b3e}
+.brand{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:800;letter-spacing:.16em;color:#fff}.mark{width:40px;height:40px;flex:none}.brand small{display:block;color:#aab0ae;letter-spacing:.12em;font-weight:600;font-size:10px;margin-top:2px}
+h1{font-size:25px;line-height:1.12;margin:25px 0 7px;letter-spacing:.015em} .sub{color:var(--muted);font-size:14px;margin:0 0 19px}
+.rule{height:2px;background:linear-gradient(90deg,var(--red),#9c3833 60%,transparent);margin:16px 0 20px}
+.steps{display:grid;gap:10px}.step{display:grid;grid-template-columns:45px 1fr;gap:13px;align-items:start;background:linear-gradient(135deg,#202628,#171b1d);border:1px solid #374044;border-radius:12px;padding:13px 14px}.n{width:38px;height:38px;display:grid;place-items:center;background:#472320;border:1px solid #a44840;color:#ff8a70;font-weight:900;font-size:19px;border-radius:8px;box-shadow:inset -5px -5px 0 #301918}.step b{display:block;font-size:15px;margin:0 0 3px}.step p{color:#c1c7c4;font-size:13px;line-height:1.4;margin:0}.file{display:inline-block;color:#ffca83;background:#292522;border:1px solid #57402c;border-radius:5px;padding:2px 6px;font:600 12px/1.4 ui-monospace,monospace;word-break:break-word}
+.result{display:flex;align-items:center;gap:10px;background:#16231d;border:1px solid #385b47;border-radius:10px;padding:12px 14px;margin-top:14px;color:#d6f2df;font-size:13px}.dot{width:11px;height:11px;flex:none;border-radius:3px;background:var(--green);box-shadow:0 0 12px #83d8a3}
+.note{margin-top:12px;padding:12px 14px;border-left:3px solid var(--amber);background:#25221d;color:#d8d0c4;font-size:12px;line-height:1.45}.note strong{color:#ffcd85}.foot{margin-top:18px;padding-top:12px;border-top:1px solid #32393b;display:flex;justify-content:space-between;color:#8f9997;font-size:10px;letter-spacing:.06em}.tiny{color:#ff8a70}
+</style></head><body>
+<main id="singbox">
+  <div class="brand"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="#d7443e" d="M4 4h12v8H8v8H4zm24 0h8v12h-8V8h-8V4zM4 28h8v8H4zm24 0h8v8h-8z"/><path fill="#ffbd67" d="M16 12h8v4h4v8h-4v4h-8v-4h-4v-8h4z"/><path fill="#fff1dc" d="M18 16h4v8h-4z"/></svg><div>REDSTOUNS VPN<small>БЕЗОПАСНОЕ ПОДКЛЮЧЕНИЕ</small></div></div>
+  <h1>ПОДКЛЮЧЕНИЕ<br>В SING-BOX EXTENDED</h1><p class="sub">Android · импорт локального профиля</p><div class="rule"></div>
+  <div class="steps">
+    <section class="step"><div class="n">1</div><div><b>Скачай профиль в боте</b><p>Нажми кнопку «Профиль sing-box» и сохрани файл <span class="file">redstone-sing-box.json</span>.</p></div></section>
+    <section class="step"><div class="n">2</div><div><b>Добавь локальную конфигурацию</b><p>Открой sing-box Extended, выбери добавление или импорт локального профиля и укажи скачанный JSON-файл.</p></div></section>
+    <section class="step"><div class="n">3</div><div><b>Запусти Redstouns VPN</b><p>Выбери добавленный профиль и нажми кнопку запуска. Если Android спросит разрешение на VPN — подтверди.</p></div></section>
+    <section class="step"><div class="n">4</div><div><b>Проверь соединение</b><p>Должен появиться системный значок VPN; при загрузке страницы должны меняться счётчики трафика.</p></div></section>
+  </div>
+  <div class="result"><span class="dot"></span><span><strong>Готово:</strong> интернет-трафик устройства идёт через VPN-профиль.</span></div>
+  <div class="note"><strong>Важно.</strong> Профиль содержит личный ключ: не пересылай его и не устанавливай на нескольких устройствах одновременно. Перед проверкой выключи другой VPN.</div>
+  <div class="foot"><span>REDSTOUNS VPN · ANDROID</span><span class="tiny">FULL TUNNEL · IPv4 + IPv6</span></div>
+</main>
+<main id="wireguard" style="margin-top:24px">
+  <div class="brand"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path fill="#d7443e" d="M4 4h12v8H8v8H4zm24 0h8v12h-8V8h-8V4zM4 28h8v8H4zm24 0h8v8h-8z"/><path fill="#ffbd67" d="M16 12h8v4h4v8h-4v4h-8v-4h-4v-8h4z"/><path fill="#fff1dc" d="M18 16h4v8h-4z"/></svg><div>REDSTOUNS VPN<small>ЗАПАСНОЙ СПОСОБ ПОДКЛЮЧЕНИЯ</small></div></div>
+  <h1>ПОДКЛЮЧЕНИЕ<br>ЧЕРЕЗ WIREGUARD</h1><p class="sub">Android · профиль .conf</p><div class="rule"></div>
+  <div class="steps">
+    <section class="step"><div class="n">1</div><div><b>Скачай профиль в боте</b><p>Нажми «Профиль WireGuard» и сохрани <span class="file">redstone-phone.conf</span>.</p></div></section>
+    <section class="step"><div class="n">2</div><div><b>Импортируй в WireGuard</b><p>Открой приложение WireGuard, нажми «+» и выбери импорт из файла. Укажи скачанный профиль.</p></div></section>
+    <section class="step"><div class="n">3</div><div><b>Включи туннель</b><p>Нажми переключатель у профиля и подтверди системный запрос Android на VPN-подключение.</p></div></section>
+    <section class="step"><div class="n">4</div><div><b>Убедись, что есть трафик</b><p>Открой страницу и проверь, что счётчики отправленных и полученных данных растут.</p></div></section>
+  </div>
+  <div class="result"><span class="dot"></span><span><strong>Готово:</strong> WireGuard подключён как VPN-туннель устройства.</span></div>
+  <div class="note"><strong>Важно.</strong> Файл содержит личный ключ. Не пересылай его и не включай одновременно с другим VPN-профилем.</div>
+  <div class="foot"><span>REDSTOUNS VPN · ANDROID</span><span class="tiny">WIREGUARD · IPv4 + IPv6</span></div>
+</main>
+</body></html>

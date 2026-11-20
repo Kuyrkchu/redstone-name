@@ -1,17 +1,35 @@
-# Redstone VPN Bot — initial Rust implementation
+# Redstouns VPN Bot
 
-This is an initial bot, **not a production VPN service**. VPN provisioning, payments, subscription enforcement, support ticket routing, idempotency persistence, audit and complete account deletion are not yet implemented. Do not sell subscriptions or distribute VPN configurations with this build.
+Закрытая по функциональности некоммерческая рабочая версия Telegram-бота для владельца обычного WireGuard VPN. Репозиторий публичный: здесь только исходники, общие инструкции и учебные изображения. Это **staging/MVP**, не готовый многопользовательский VPN-сервис.
 
-## Run (Ubuntu)
-Install a supported Rust toolchain and build dependencies, then:
+## Что есть
 
-```bash
-export TELEGRAM_BOT_TOKEN='your private token' # enter only in your own shell/server
+- Rust/Teloxide Telegram-бот (`src/main.rs`) с меню, краткими Android-инструкциями и выдачей подготовленных профилей только администратору в личном чате.
+- `docs/` с HTML-инструкциями, карточками и ссылками на источники совместимости HAPP, v2RayTun и AmneziaVPN.
+- Администратор задаётся переменной `ADMIN_TELEGRAM_ID`; числовой ID не зашит в исходник.
+
+## Ограничения
+
+Бот ожидает, что действующие профили и изображения уже размещены на сервере по локальным путям, указанным в `src/main.rs`. Он не создаёт уникальные WireGuard peers для обычных пользователей, не отзывает их динамически, не выдаёт промокоды и не показывает live-статистику. Эти функции не реализованы и не должны считаться работающими.
+
+Сервер использует обычный WireGuard. HAPP не указывает WireGuard среди поддерживаемых форматов; AmneziaVPN можно пробовать с `.conf`; импорт стандартного WireGuard-файла в v2RayTun зависит от сборки и не подтверждён здесь. Подробности и источники — в `docs/app-compatibility-sources.md`.
+
+## Локальная сборка
+
+Нужен Rust toolchain. Из корня репозитория:
+
+```sh
+cp .env.example .env
+# Заполните значения локально, не публикуйте и не коммитьте .env
+set -a
+. ./.env
+set +a
+cargo check
 cargo run --release
 ```
 
-For production, inject TELEGRAM_BOT_TOKEN from a secret manager or a protected systemd EnvironmentFile. Never publish it. SQLite DB is persisted in `redstone.db` by default.
+Переменные окружения: `TELEGRAM_BOT_TOKEN`, `ADMIN_TELEGRAM_ID` (личный числовой Telegram ID администратора) и необязательная `DATABASE_URL`. Если ID не задан или некорректен, административная выдача отключена. В production перед запуском проверьте пути профилей, переменные systemd, права доступа и токен.
 
-Commands: /start, /help, /status, /servers, /plans, /config, /support, /delete_account, /admin.
+## Секреты
 
-Security: Admin check uses numeric Telegram ID 9215677457, not username. Only private-chat commands are handled. Callback routing must be restricted to private chats before production rollout. The code has not been compiled or integration-tested in this environment.
+Не коммитьте реальные `.conf`, sing-box JSON с ключами, QR-коды доступа, ZIP профиля, `.env`, базу данных, SSH-ключи или токен бота. Профиль и QR содержат приватный ключ. `.gitignore` настроен отсеивать наиболее распространённые такие файлы, но перед каждым push всё равно проверяйте staged changes.
